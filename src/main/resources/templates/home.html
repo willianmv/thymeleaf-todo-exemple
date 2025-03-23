@@ -1,1 +1,16 @@
-<h1>Olá, Mundo!</h1>
+<html xmlns:th="http://thymeleaf.org" lang="PT-BR">
+
+    <head>
+        <title>Task Manager</title>
+    </head>
+
+    <body>
+        <h1>Olá, Mundo!</h1>
+        <p th:text="${nome}"></p>
+        <ul>
+            <li th:each="teste : ${testes}" th:text="${teste}"></li>
+        </ul>
+        <p th:if="${ehprogramador}">A variável ehprogramador está como true</p>
+    </body>
+
+</html>
