@@ -50,5 +50,17 @@ public class TaskController {
         return "redirect:/";
     }
 
+    @GetMapping("/delete/{id}")
+    public ModelAndView delete(@PathVariable Long id){
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return new ModelAndView("task/delete", Map.of("task", task));
+    }
+
+    @PostMapping("/delete/{id}")
+    public String delete(Task task){
+        taskRepository.delete(task);
+        return "redirect:/";
+    }
 
 }
