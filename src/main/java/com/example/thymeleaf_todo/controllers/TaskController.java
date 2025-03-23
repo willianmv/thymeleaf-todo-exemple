@@ -4,6 +4,7 @@ import com.example.thymeleaf_todo.models.Task;
 import com.example.thymeleaf_todo.repositories.TaskRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -24,7 +25,7 @@ public class TaskController {
     @GetMapping("/")
     public ModelAndView list(){
         return new ModelAndView("task/list",
-                Map.of("tasks", taskRepository.findAll()));
+                Map.of("tasks", taskRepository.findAll(Sort.by("deadLine"))));
     }
 
     @GetMapping("/create")

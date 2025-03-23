@@ -35,11 +35,17 @@
                     <td th:text="${#temporals.format(task.finishedAt)} ?: '-'">@mdo</td>
                     <td>
                         <form th:action="@{/finish/{id}(id=${task.id})}" method="post" class="d-inline">
-                            <button type="submit" class="btn btn-sm btn-primary">Concluir</button>
+                            <button
+                                    type="submit"
+                                    class="btn btn-sm btn-primary"
+                                    th:classappend="${task.finishedAt} ? 'disabled' : ''">
+                                    Concluir
+                            </button>
                         </form>
 
                         <a th:href="@{/edit/{id}(id=${task.id})}"
-                           class="btn btn-sm btn-secondary">
+                           class="btn btn-sm btn-secondary"
+                           th:classappend="${task.finishedAt} ? 'disabled' : ''">
                             Editar
                         </a>
 
