@@ -42,4 +42,9 @@ public class Task {
     public Task() {
         this.createdAt = LocalDateTime.now();
     }
+
+    public void markAsFinished(){
+        this.finishedAt = LocalDate.now();
+    }
+
 }

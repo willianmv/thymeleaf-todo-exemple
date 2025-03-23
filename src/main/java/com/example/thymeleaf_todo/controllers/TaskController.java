@@ -67,4 +67,13 @@ public class TaskController {
         return "redirect:/";
     }
 
+    @PostMapping("/finish/{id}")
+    public String finish(@PathVariable Long id){
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        task.markAsFinished();
+        taskRepository.save(task);
+        return "redirect:/";
+    }
+
 }
