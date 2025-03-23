@@ -2,6 +2,7 @@ package com.example.thymeleaf_todo.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "TB_TASK")
 @Data
+@ToString
 public class Task {
 
     @Id
