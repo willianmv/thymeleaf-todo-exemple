@@ -138,3 +138,6 @@ Caused by: java.lang.NumberFormatException: 25 10:00:00
 2025-03-22 22:56:14.477556-03:00 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]* FROM TB_TASK"; expected "identifier"; SQL statement:
 DELETE * FROM TB_TASK [42001-232]
+2025-03-22 23:24:38.649331-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO TB_TASK (TITLE, CREATED_AT, DEAD_LINE) [*]VALUE ('Estudar para prova', '2025-03-25', '2025-03-22')"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO TB_TASK (TITLE, CREATED_AT, DEAD_LINE) VALUE ('Estudar para prova', '2025-03-25', '2025-03-22') [42001-232]

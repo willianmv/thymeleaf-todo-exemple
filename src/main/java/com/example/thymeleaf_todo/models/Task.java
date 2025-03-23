@@ -28,4 +28,7 @@ public class Task {
 
     private LocalDate finishedAt;
 
+    public Task() {
+        this.createdAt = LocalDateTime.now();
+    }
 }
