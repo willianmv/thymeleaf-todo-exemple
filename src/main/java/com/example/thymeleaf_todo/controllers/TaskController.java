@@ -2,9 +2,11 @@ package com.example.thymeleaf_todo.controllers;
 
 import com.example.thymeleaf_todo.models.Task;
 import com.example.thymeleaf_todo.repositories.TaskRepository;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +34,8 @@ public class TaskController {
     }
 
     @PostMapping("/create")
-    public String create(Task task){
+    public String create(@Valid Task task, BindingResult result){
+        if(result.hasErrors()) return "task/form";
         taskRepository.save(task);
         return "redirect:/";
     }
@@ -45,7 +48,8 @@ public class TaskController {
     }
 
     @PostMapping("/edit/{id}")
-    public String edit(Task task){
+    public String edit(@Valid Task task, BindingResult result){
+        if(result.hasErrors()) return "task/form";
         taskRepository.save(task);
         return "redirect:/";
     }

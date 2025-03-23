@@ -1,6 +1,11 @@
 package com.example.thymeleaf_todo.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,6 +24,8 @@ public class Task {
     private Long id;
 
     @Column(length = 100, nullable = false)
+    @NotBlank(message = "Este campo não pode ser vazio")
+    @Size(min = 3, max = 100, message = "Tamanho deve ser de 3 a 100 caracteres")
     private String title;
 
     @Column(nullable = false)
@@ -26,6 +33,8 @@ public class Task {
 
     @Column(nullable = false)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @NotNull(message = "Este campo não pode ser vazio")
+    @FutureOrPresent(message = "Datas passadas não permitidas")
     private LocalDate deadLine;
 
     private LocalDate finishedAt;
